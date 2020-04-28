@@ -1,0 +1,31 @@
+{
+  "name": "@pansy/worksapce",
+  "private": true,
+  "repository": "git@github.com:ts-react/react-admin-template.git",
+  "author": "wangxingkang <wang_xingkang@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "bootstrap": "yarn && lerna bootstrap",
+    "test": "birma-test",
+    "prettier": "walrus prettier",
+    "lint:style": "walrus stylelint --fix 'src/**/*.less' --syntax less",
+    "lint:commit": "walrus commitlint --env HUSKY_GIT_PARAMS"
+  },
+  "devDependencies": {
+    "@walrus/cli": "^1.2.0",
+    "@walrus/plugin-release": "^1.6.0",
+    "@walrus/preset-lint": "^1.1.1",
+    "husky": "^4.0.10",
+    "lerna": "^3.20.2",
+    "typescript": "^3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier",
+      "commit-msg": "yarn lint:commit"
+    }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
